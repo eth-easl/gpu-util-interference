@@ -1,0 +1,5 @@
+*.ncu-rep
+*.nsys-rep
+.vscode
+build
+venv

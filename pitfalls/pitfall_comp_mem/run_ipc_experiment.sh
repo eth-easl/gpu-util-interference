@@ -13,7 +13,7 @@ NUM_ITERS_COMP_BENCH=30000000
 NUM_ITERS_MEM_BENCH=180
 
 # measure latency of compute and copy kernel when run in isolation
-./$BUILD_DIR/comp_mem_ipc 1 $NUM_THREADS_PER_BLOCK $NUM_ITERS_COMP_BENCH $NUM_ITERS_MEM_BENCH
+$BUILD_DIR/comp_mem_ipc 1 $NUM_THREADS_PER_BLOCK $NUM_ITERS_COMP_BENCH $NUM_ITERS_MEM_BENCH
 
 # masure latency of compute and copy kernel when running concurrently
-./$BUILD_DIR/comp_mem_ipc 3 $NUM_THREADS_PER_BLOCK $NUM_ITERS_COMP_BENCH $NUM_ITERS_MEM_BENCH
+$BUILD_DIR/comp_mem_ipc 3 $NUM_THREADS_PER_BLOCK $NUM_ITERS_COMP_BENCH $NUM_ITERS_MEM_BENCH

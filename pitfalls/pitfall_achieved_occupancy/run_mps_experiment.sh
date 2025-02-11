@@ -13,10 +13,10 @@ echo "----------------------------------------"
 echo "Running without MPS"
 
 # measure latency of single compute kernel on all SMs WITHOUT MPS
-./$BUILD_DIR/achieved_occupancy 1 $num_tb $num_threads_per_tb $num_itrs
+$BUILD_DIR/achieved_occupancy 1 $num_tb $num_threads_per_tb $num_itrs
 
 # measure sequential latency of two compute kernels on all SMs WITHOUT MPS
-./$BUILD_DIR/achieved_occupancy 2 $num_tb $num_threads_per_tb $num_itrs
+$BUILD_DIR/achieved_occupancy 2 $num_tb $num_threads_per_tb $num_itrs
 
 echo "----------------------------------------"
 echo "Starting MPS"
@@ -35,7 +35,7 @@ function cleanup() {
 trap "cleanup; exit" SIGINT
 
 echo "Measuring latency of two colocated compute kernels WITH MPS. Each kernel uses $achieved_occupancy % of the SMs"
-CUDA_MPS_ACTIVE_THREAD_PERCENTAGE=$achieved_occupancy ./$BUILD_DIR/achieved_occupancy 1 $num_tb $num_threads_per_tb $num_itrs &
-CUDA_MPS_ACTIVE_THREAD_PERCENTAGE=$achieved_occupancy ./$BUILD_DIR/achieved_occupancy 1 $num_tb $num_threads_per_tb $num_itrs
+CUDA_MPS_ACTIVE_THREAD_PERCENTAGE=$achieved_occupancy $BUILD_DIR/achieved_occupancy 1 $num_tb $num_threads_per_tb $num_itrs &
+CUDA_MPS_ACTIVE_THREAD_PERCENTAGE=$achieved_occupancy $BUILD_DIR/achieved_occupancy 1 $num_tb $num_threads_per_tb $num_itrs
 
 cleanup

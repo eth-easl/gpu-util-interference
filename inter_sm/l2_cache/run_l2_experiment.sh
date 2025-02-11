@@ -12,8 +12,8 @@ num_itrs=10000
 # for (NUM_BYTES = 8MB; NUM_BYTES <= 40MB; NUM_BYTES += 8MB)
 for NUM_BYTES in {8388608..41943040..8388608}; do
     # Measure latency of single copy kernel
-    ./$BUILD_DIR/l2_cache 1 $num_tb $num_threads_per_tb $num_itrs $NUM_BYTES
+    $BUILD_DIR/l2_cache 1 $num_tb $num_threads_per_tb $num_itrs $NUM_BYTES
 
     # Measure latency of two colocated copy kernel
-    ./$BUILD_DIR/l2_cache 3 $num_tb $num_threads_per_tb $num_itrs $NUM_BYTES
+    $BUILD_DIR/l2_cache 3 $num_tb $num_threads_per_tb $num_itrs $NUM_BYTES
 done;

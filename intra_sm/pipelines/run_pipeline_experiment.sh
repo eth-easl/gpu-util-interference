@@ -10,8 +10,8 @@ num_itrs=20000000
 
 for ILP in {1..4..1}; do
     # run two compute kernels sequentially
-    ./$BUILD_DIR/pipelines 2 $ILP $num_threads_per_tb $num_itrs
+    $BUILD_DIR/pipelines 2 $ILP $num_threads_per_tb $num_itrs
 
     # run two compute kernels colocated using CUDA streams
-    ./$BUILD_DIR/pipelines 3 $ILP $num_threads_per_tb $num_itrs
+    $BUILD_DIR/pipelines 3 $ILP $num_threads_per_tb $num_itrs
 done

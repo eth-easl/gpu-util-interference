@@ -13,14 +13,14 @@ num_bytes=4294967296 # 4 GB, update if necessary to avoid OOM errors
 ILP=4 # TODO: update compute ilp level based on scenario you are running
 
 # Measure the latency of a single copy kernel
-./$BUILD_DIR/ipc 1 0 $threads_per_tb_copy $threads_per_tb_comp $num_itrs_copy $num_itrs_comp $num_bytes
+$BUILD_DIR/ipc 1 0 $threads_per_tb_copy $threads_per_tb_comp $num_itrs_copy $num_itrs_comp $num_bytes
 
 # Measure the latency of a single compute kernel
-./$BUILD_DIR/ipc 1 $ILP $threads_per_tb_copy $threads_per_tb_comp $num_itrs_copy $num_itrs_comp $num_bytes
+$BUILD_DIR/ipc 1 $ILP $threads_per_tb_copy $threads_per_tb_comp $num_itrs_copy $num_itrs_comp $num_bytes
 
 # Measure the latency of a copy and compute kernel running sequentially
 # NOTE: update num_itrs_comp and num_itrs_copy such that their isolated runtime is similar
-./$BUILD_DIR/ipc 2 $ILP $threads_per_tb_copy $threads_per_tb_comp $num_itrs_copy $num_itrs_comp $num_bytes
+$BUILD_DIR/ipc 2 $ILP $threads_per_tb_copy $threads_per_tb_comp $num_itrs_copy $num_itrs_comp $num_bytes
 
 # Measure the latency of a copy and compute kernel running concurrently
-./$BUILD_DIR/ipc 3 $ILP $threads_per_tb_copy $threads_per_tb_comp $num_itrs_copy $num_itrs_comp $num_bytes
+$BUILD_DIR/ipc 3 $ILP $threads_per_tb_copy $threads_per_tb_comp $num_itrs_copy $num_itrs_comp $num_bytes

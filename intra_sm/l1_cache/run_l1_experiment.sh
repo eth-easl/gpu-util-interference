@@ -12,8 +12,8 @@ num_itrs=15000
 # for (num_bytes_per_tb = 32KB; num_bytes_per_tb <= 128KB; num_bytes_per_tb += 32KB)
 for num_bytes_per_tb in {32768..131072..32768}; do
     # measure sequential latency of two copy kernel
-    ./$BUILD_DIR/l1_cache 2 $num_threads_per_tb $num_bytes_per_tb $unified_l1_cache_size $num_itrs
+    $BUILD_DIR/l1_cache 2 $num_threads_per_tb $num_bytes_per_tb $unified_l1_cache_size $num_itrs
 
     # measure concurrent latency of two copy kernels
-    ./$BUILD_DIR/l1_cache 3 $num_threads_per_tb $num_bytes_per_tb $unified_l1_cache_size $num_itrs
+    $BUILD_DIR/l1_cache 3 $num_threads_per_tb $num_bytes_per_tb $unified_l1_cache_size $num_itrs
 done;
